@@ -5,6 +5,8 @@ import { execa } from "execa"
  * @param {string} template Template to determine the repository to clone.
  * @param {string} projectName Name of the project where the repository will be cloned.
  * @returns {Promise<void>} A Promise that resolves once the repository is cloned successfully.
+ * @example
+ * await cloneRepository("Web", "myProjectName")
  */
 export default async function cloneRepository(
 	template: string,
