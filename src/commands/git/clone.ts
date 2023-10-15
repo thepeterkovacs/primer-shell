@@ -12,17 +12,5 @@ export default async function cloneRepository(
 	template: string,
 	projectName: string
 ): Promise<void> {
-	let repository = ""
-
-	switch (template) {
-		case "Web":
-			repository = "web-primer-shell"
-			break
-	}
-
-	await execa("git", [
-		"clone",
-		`https://github.com/thepeterkovacs/${repository}.git`,
-		projectName,
-	])
+	await execa("git", ["clone", `https://github.com/thepeterkovacs/${template}.git`, projectName])
 }

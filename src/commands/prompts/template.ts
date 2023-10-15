@@ -14,7 +14,8 @@ export default async function selectTemplate(): Promise<string> {
 			message: "Which template would you like to use?",
 			choices: [
 				{
-					name: "Web",
+					name: "Web Primer Shell",
+					value: "web-primer-shell",
 				},
 			],
 		},
