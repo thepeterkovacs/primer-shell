@@ -17,6 +17,11 @@ export default async function selectTemplate(): Promise<string> {
 					name: "Web Primer Shell",
 					value: "web-primer-shell",
 				},
+				{
+					name: "Node Primer Shell",
+					value: "node-primer-shell",
+					disabled: "Coming soon",
+				},
 			],
 		},
 	])
