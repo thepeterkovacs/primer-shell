@@ -5,7 +5,7 @@ import { execa } from "execa"
  * @param {string} projectName Name of the project from which files will be removed.
  * @returns {Promise<void>} A Promise that resolves once the files are removed successfully.
  * @example
- * await removeFiles("myProjectName")
+ * await removeFiles("project-name")
  */
 export default async function removeFiles(projectName: string): Promise<void> {
 	await execa("rd", ["/s", "/q", `${projectName}\\.git`], { shell: true })

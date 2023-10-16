@@ -6,7 +6,7 @@ import { promises } from "fs"
  * @param {string} projectName Name of the project for which the `package.json` file is created.
  * @returns {Promise<void>} A Promise that resolves once the `package.json` file is created successfully.
  * @example
- * await createPackageJson("myTemplate", "myProjectName")
+ * await createPackageJson("template", "project-name")
  */
 export async function createPackageJson(template: string, projectName: string): Promise<void> {
 	const content = getContent(template, projectName)

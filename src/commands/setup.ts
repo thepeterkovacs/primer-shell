@@ -12,7 +12,7 @@ import removeFiles from "./remove.js"
  * @param {string} projectName Name of the project to be set up.
  * @returns {Promise<void>} A Promise that resolves once the project setup is completed successfully.
  * @example
- * await projectSetup("myTemplate", "myProjectName")
+ * await projectSetup("template", "project-name")
  */
 export default async function projectSetup(template: string, projectName: string): Promise<void> {
 	try {

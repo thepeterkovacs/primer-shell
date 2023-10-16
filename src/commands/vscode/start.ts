@@ -9,7 +9,7 @@ import error from "../../lib/error.js"
  * @param {string} projectName Name of the project for which VSCode will be started.
  * @returns {Promise<void>} A Promise that resolves once VSCode is started successfully.
  * @examplestartVscode
- * await startVscode("myProjectName")
+ * await startVscode("project-name")
  */
 export async function startVscode(projectName: string): Promise<void> {
 	try {

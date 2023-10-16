@@ -5,7 +5,7 @@ import error from "./error.js"
  * @param {string} projectName Project name to be validated.
  * @returns {void}
  * @example
- * validateProjectName("myProjectName")
+ * validateProjectName("project-name")
  */
 export function validateProjectName(projectName: string): void {
 	const regex = /^[^\\/:\*\?"<>\|]+$/

@@ -6,7 +6,7 @@ import chalk from "chalk"
  * @param {unknown} [details] Optional details or additional information about the error.
  * @returns {void}
  * @example
- * logError("Something went wrong")
+ * logError("Error")
  */
 export default function logError(title: string, details?: unknown): void {
 	console.log(chalk.bgRed(title + "\n"))
