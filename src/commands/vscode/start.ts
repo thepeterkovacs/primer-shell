@@ -2,7 +2,7 @@ import cliSpinners from "cli-spinners"
 import { execa } from "execa"
 import { oraPromise } from "ora"
 
-import error from "../../lib/error.js"
+import logError from "../../lib/error.js"
 
 /**
  * Asynchronously starts Visual Studio Code (VSCode) for the specified project.
@@ -24,6 +24,6 @@ export async function startVscode(projectName: string): Promise<void> {
 			}
 		)
 	} catch (err) {
-		error("VSCode could not start", err)
+		logError("VSCode could not start", err)
 	}
 }

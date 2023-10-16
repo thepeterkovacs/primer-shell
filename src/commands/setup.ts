@@ -1,7 +1,7 @@
 import cliSpinners from "cli-spinners"
 import { oraPromise } from "ora"
 
-import error from "../lib/error.js"
+import logError from "../lib/error.js"
 import cloneRepository from "./git/clone.js"
 import { createPackageJson } from "./npm/package.js"
 import removeFiles from "./remove.js"
@@ -23,7 +23,7 @@ export default async function projectSetup(template: string, projectName: string
 			color: "cyan",
 		})
 	} catch (err) {
-		error("Project setup failed", err)
+		logError("Project setup failed", err)
 	}
 }
 

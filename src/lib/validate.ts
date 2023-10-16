@@ -1,4 +1,4 @@
-import error from "./error.js"
+import logError from "./error.js"
 
 /**
  * Validates the provided project name against a specific regex pattern.
@@ -11,7 +11,7 @@ export function validateProjectName(projectName: string): void {
 	const regex = /^[^\\/:\*\?"<>\|]+$/
 
 	if (!regex.test(projectName)) {
-		error(
+		logError(
 			"Project name validation failed",
 			'Project name does not match regex /^[^\\/:*?"<>|]+$/'
 		)
