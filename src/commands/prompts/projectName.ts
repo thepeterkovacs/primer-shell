@@ -1,6 +1,6 @@
 import inquirer from "inquirer"
 
-import { validateProjectName } from "../../lib/validate.js"
+import { validateProjectName } from "../../lib/validation.js"
 
 /**
  * Asynchronously prompts the user to input the project name and returns the entered name.
