@@ -20,7 +20,7 @@ export async function startVscode(projectName: string): Promise<void> {
 				text: "Starting VSCode...",
 				successText: "VSCode started successfully",
 				spinner: cliSpinners.binary,
-				color: "yellow",
+				color: "cyan",
 			}
 		)
 	} catch (err) {
