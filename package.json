@@ -1,21 +1,25 @@
 {
 	"name": "primer-shell",
 	"version": "1.0.0",
-	"description": "Command Line Interface (CLI) tool designed to streamline the initialization process of Node.js applications, using carefully crafted templates for optimal project structuring.",
+	"description": "Primer Shell is a Command Line Interface (CLI) tool designed to streamline the initialization process of Node.js applications, using carefully crafted templates for optimal project structuring.",
 	"author": {
 		"name": "Peter Kovacs",
 		"email": "peterkov37@gmail.com",
-		"url": "https://primershell.com"
+		"url": "https://primershell.com/portfolio"
 	},
 	"maintainers": [
 		"thepeterkovacs"
 	],
-	"homepage": "https://github.com/thepeterkovacs/primer-shell",
+	"homepage": "https://primershell.com",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/thepeterkovacs/primer-shell"
 	},
+	"engines": {
+		"node": ">=18.17.1"
+	},
+	"packageManager": "pnpm@8.7.1",
 	"keywords": [
 		"Primer Shell",
 		"CLI",
