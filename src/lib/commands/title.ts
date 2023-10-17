@@ -1,7 +1,7 @@
 import figlet from "figlet"
 import gradient from "gradient-string"
 
-import logError from "../lib/error.js"
+import logError from "../utils/error.js"
 
 /**
  * Asynchronously generates and displays a styled title using the Figlet library.

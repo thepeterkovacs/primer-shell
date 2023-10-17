@@ -2,7 +2,7 @@ import cliSpinners from "cli-spinners"
 import { execa } from "execa"
 import { oraPromise } from "ora"
 
-import logError from "../../lib/error.js"
+import logError from "../../lib/utils/error.js"
 
 /**
  * Asynchronously starts Visual Studio Code (VSCode) for the specified project.

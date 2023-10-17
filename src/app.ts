@@ -1,10 +1,9 @@
 #!/usr/bin/env node
-import checkGitExists from "./commands/git/check.js"
-import inputProjectName from "./commands/prompts/projectName.js"
-import selectTemplate from "./commands/prompts/template.js"
-import projectSetup from "./commands/setup.js"
-import showTitle from "./commands/title.js"
-import { startVscode } from "./commands/vscode/start.js"
+import { inputProjectName, selectTemplate } from "./lib/commands/prompt.js"
+import projectSetup from "./lib/commands/setup.js"
+import showTitle from "./lib/commands/title.js"
+import { startVscode } from "./lib/commands/vscode.js"
+import { checkGitExists } from "./lib/utils/validation.js"
 
 await showTitle("Primer Shell", "Doom")
 
