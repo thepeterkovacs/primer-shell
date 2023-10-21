@@ -30,7 +30,7 @@
 	"scripts": {
 		"build": "pnpm exec tsc",
 		"watch": "tsc -w",
-		"dev": "node build/app.js",
+		"start": "node build/app.js",
 		"format": "pnpm prettier . --write"
 	},
 	"dependencies": {
