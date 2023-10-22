@@ -1,7 +1,9 @@
 import cliSpinners from "cli-spinners"
-import { execa } from "execa"
+import { promises } from "fs"
 import { oraPromise } from "ora"
+import path from "path"
 
+import { ROOT_PATH } from "../../config.js"
 import logError from "../utils/error.js"
 
 /**
@@ -14,7 +16,7 @@ import logError from "../utils/error.js"
  */
 export default async function projectSetup(template: string, projectName: string): Promise<void> {
 	try {
-		await oraPromise(setupProcess(template, projectName), {
+		await oraPromise(copyTemplate(template, projectName), {
 			text: "Setting up project...",
 			successText: "Project setup completed successfully",
 			spinner: cliSpinners.binary,
@@ -25,18 +27,18 @@ export default async function projectSetup(template: string, projectName: string
 	}
 }
 
-async function setupProcess(template: string, projectName: string) {
-	await cloneRepository(template, projectName)
-}
-
 /**
- * Asynchronously clones a Git repository based on the specified template into the folder with the provided project name.
- * @param {string} template Template to determine the repository to clone.
- * @param {string} projectName Name of the project where the repository will be cloned.
- * @returns {Promise<void>} A Promise that resolves once the repository is cloned successfully.
- * @example
- * await cloneRepository("template", "project-name")
+ * Asynchronously copies a template directory to a new project directory.
+ * @param {string} template Name of the template to copy.
+ * @param {string} projectName Name of the new project directory.
+ * @returns {Promise<void>} A Promise that resolves when the copy operation is complete.
  */
-async function cloneRepository(template: string, projectName: string): Promise<void> {
-	await execa("git", ["clone", `https://github.com/thepeterkovacs/${template}.git`, projectName])
+async function copyTemplate(template: string, projectName: string): Promise<void> {
+	await promises.cp(
+		path.join(ROOT_PATH, `templates/${template}`),
+		path.resolve(process.cwd(), projectName),
+		{
+			recursive: true,
+		}
+	)
 }
