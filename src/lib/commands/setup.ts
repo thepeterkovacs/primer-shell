@@ -35,7 +35,7 @@ export default async function projectSetup(template: string, projectName: string
  */
 async function copyTemplate(template: string, projectName: string): Promise<void> {
 	await promises.cp(
-		path.join(ROOT_PATH, `templates/${template}`),
+		path.join(ROOT_PATH, `src/templates/${template}`),
 		path.resolve(process.cwd(), projectName),
 		{
 			recursive: true,
