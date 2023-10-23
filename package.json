@@ -12,6 +12,14 @@
 	],
 	"homepage": "https://primershell.com",
 	"license": "MIT",
+	"files": [
+		"build",
+		"templates",
+		"LICENSE",
+		"package.json",
+		"pnpm-lock.yaml",
+		"README.md"
+	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/thepeterkovacs/primer-shell"
