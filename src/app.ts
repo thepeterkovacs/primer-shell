@@ -1,19 +1,13 @@
 #!/usr/bin/env node
 import { APP_NAME } from "./config.js"
-import { inputProjectName, selectTemplate } from "./lib/commands/prompt.js"
-import projectSetup from "./lib/commands/setup.js"
-import showTitle from "./lib/commands/title.js"
-import { startVscode } from "./lib/commands/vscode.js"
-import { checkGitExists } from "./lib/utils/validation.js"
+import { inputProjectName, selectTemplate, setupProject, showTitle, startVscode } from "./lib.js"
 
 await showTitle(APP_NAME, "Doom")
 
 const template = await selectTemplate()
 const projectName = await inputProjectName()
 
-await checkGitExists()
-
-await projectSetup(template, projectName)
+await setupProject(template, projectName)
 
 await startVscode(projectName)
 
