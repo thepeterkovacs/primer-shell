@@ -1,6 +1,6 @@
 # directories
-node_modules
 build
+node_modules
 
 # files
 pnpm-lock.yaml

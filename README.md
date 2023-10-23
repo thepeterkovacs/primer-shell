@@ -1,4 +1,7 @@
 <h1 align="center">
+	<div align="center">
+		<img src="./assets/shell-white.png" width="90">
+	</div>
 	Primer Shell
 </h1>
 
@@ -8,8 +11,8 @@ Primer Shell is a Command Line Interface (CLI) tool designed to streamline the i
 
 ## Quick start
 
-Make sure to have [Node.js](https://nodejs.org/en), [Git](https://git-scm.com/downloads) and [pnpm](https://pnpm.io/installation) installed first.
+Make sure to have [Node.js](https://nodejs.org/en) installed first.
 
 ```bash
-pnpm dlx primer-shell
+npx primer-shell
 ```
