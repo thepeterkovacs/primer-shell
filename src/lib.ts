@@ -2,6 +2,7 @@ import cliSpinners from "cli-spinners"
 import { execa } from "execa"
 import figlet from "figlet"
 import { promises } from "fs"
+import fsExtra from "fs-extra"
 import gradient from "gradient-string"
 import inquirer from "inquirer"
 import { oraPromise } from "ora"
@@ -9,7 +10,7 @@ import path from "path"
 
 import { ROOT_PATH } from "./config.js"
 import type { Template } from "./types.js"
-import error, { validateProjectName } from "./utils.js"
+import error, { getVersion, validateProjectName } from "./utils.js"
 
 /**
  * Asynchronously generates and displays a styled title using the Figlet library.
@@ -92,7 +93,7 @@ export async function selectTemplate(): Promise<Template> {
  */
 export async function setupProject(template: Template, projectName: string): Promise<void> {
 	try {
-		await oraPromise(copyTemplate(template, projectName), {
+		await oraPromise(setupProcess(template, projectName), {
 			text: "Setting up project...",
 			successText: "Project setup completed successfully",
 			spinner: cliSpinners.binary,
@@ -104,12 +105,23 @@ export async function setupProject(template: Template, projectName: string): Pro
 }
 
 /**
+ * Asynchronously sets up a new project by copying a template and configuring its package.json.
+ * @param {Template} template Template to copy for the new project.
+ * @param {string} projectName Name of the new project.
+ * @returns {Promise<void>} A promise that resolves when the setup process is complete.
+ */
+async function setupProcess(template: Template, projectName: string): Promise<void> {
+	await copyTemplate(template, projectName)
+	await setupPackageJson(projectName)
+}
+
+/**
  * Asynchronously copies a template directory to a new project directory.
- * @param {string} template Name of the template to copy.
+ * @param {Template} template Name of the template to copy.
  * @param {string} projectName Name of the new project directory.
  * @returns {Promise<void>} A Promise that resolves when the copy operation is complete.
  */
-async function copyTemplate(template: string, projectName: string): Promise<void> {
+async function copyTemplate(template: Template, projectName: string): Promise<void> {
 	await promises.cp(
 		path.join(ROOT_PATH, `templates/${template}`),
 		path.resolve(process.cwd(), projectName),
@@ -117,6 +129,22 @@ async function copyTemplate(template: string, projectName: string): Promise<void
 			recursive: true,
 		}
 	)
+}
+
+/**
+ * Asynchronously sets up the package.json file for a project.
+ * @param {string} projectName Name of the project.
+ * @returns {Promise<void>} A promise that resolves when the package.json setup is complete.
+ */
+async function setupPackageJson(projectName: string): Promise<void> {
+	const packageJson = fsExtra.readJSONSync(path.join(ROOT_PATH, `${projectName}/package.json`))
+
+	packageJson.name = projectName as string
+	packageJson["primerShell"] = { version: getVersion() }
+
+	fsExtra.writeJSONSync(path.join(ROOT_PATH, `${projectName}/package.json`), packageJson, {
+		spaces: "\t",
+	})
 }
 
 /**
