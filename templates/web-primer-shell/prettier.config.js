@@ -1,0 +1,28 @@
+/** @type {import('prettier').Config} */
+module.exports = {
+	arrowParens: "always",
+	bracketSameLine: true,
+	bracketSpacing: true,
+	endOfLine: "crlf",
+	importOrder: [
+		"^(react/(.*)$)|^(react$)",
+		"^(next/(.*)$)|^(next$)",
+		"^@/styles/(.*)$",
+		"^@/types/(.*)$",
+		"^@/lib/(.*)$",
+		"^@/database/(.*)$",
+		"^@/components/(.*)$",
+		"^@/app/(.*)$",
+		"^[./]",
+	],
+	importOrderSeparation: true,
+	importOrderSortSpecifiers: true,
+	plugins: ["@trivago/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
+	printWidth: 100,
+	semi: false,
+	singleQuote: false,
+	tabWidth: 4,
+	tailwindFunctions: ["cn"],
+	trailingComma: "es5",
+	useTabs: true,
+}
