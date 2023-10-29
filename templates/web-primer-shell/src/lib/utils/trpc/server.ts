@@ -4,7 +4,7 @@ import { httpBatchLink } from "@trpc/client"
 export const trpcServer = appRouter.createCaller({
 	links: [
 		httpBatchLink({
-			url: `${process.env.BASE_URL}/api/trpc`,
+			url: `${process.env.NEXT_PUBLIC_URL}/api/trpc`,
 		}),
 	],
 })
