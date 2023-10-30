@@ -19,11 +19,13 @@ const postDataInputType = z.object({ data: z.string() })
 
 export const exampleRouter = router({
 	getData: publicProcedure.output(getDataOutputType).query(async () => {
+		await new Promise((resolve) => setTimeout(resolve, 1000))
+
 		return exampleDataStorage
 	}),
 	postData: publicProcedure.input(postDataInputType).mutation(async ({ input }) => {
 		exampleDataStorage.push({
-			id: ++exampleDataStorage[exampleDataStorage.length - 1].id,
+			id: exampleDataStorage[exampleDataStorage.length - 1].id + 1,
 			data: input.data,
 		})
 	}),
