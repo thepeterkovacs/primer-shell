@@ -25,9 +25,9 @@
 		"url": "https://github.com/thepeterkovacs/primer-shell"
 	},
 	"engines": {
-		"node": ">=18.17.1"
+		"node": ">=20.9.0"
 	},
-	"packageManager": "pnpm@8.7.1",
+	"packageManager": "pnpm@8.10.0",
 	"keywords": [
 		"Primer Shell",
 		"CLI",

@@ -14,7 +14,7 @@ Primer Shell is a Command Line Interface (CLI) tool designed to streamline the i
 
 ## Quick start
 
-Prior to proceeding, ensure that [Node.js](https://nodejs.org/en) is installed on your system. It is further recommended to utilize [pnpm](https://pnpm.io/installation) as your package manager and [Visual Studio Code](https://code.visualstudio.com) as your integrated development environment for an optimized development experience.
+Prior to proceeding, ensure that [Node.js](https://nodejs.org/en) (v20.9.0 or above) is installed on your system. It is further recommended to utilize [pnpm](https://pnpm.io/installation) (v8.10.0 or above) as your package manager and [Visual Studio Code](https://code.visualstudio.com) as your integrated development environment for an optimized development experience.
 
 To get started, simply run this command in your command prompt:
 
