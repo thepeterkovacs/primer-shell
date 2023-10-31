@@ -1,3 +1,4 @@
+import { TRPCError } from "@trpc/server"
 import { z } from "zod"
 
 import { publicProcedure, router } from "../trpc"
@@ -19,6 +20,13 @@ const postDataInputType = z.object({ data: z.string() })
 
 export const exampleRouter = router({
 	getData: publicProcedure.output(getDataOutputType).query(async () => {
+		if (exampleDataStorage.length >= 5) {
+			throw new TRPCError({
+				code: "INTERNAL_SERVER_ERROR",
+				message: "Example data storage full.",
+			})
+		}
+
 		await new Promise((resolve) => setTimeout(resolve, 1000))
 
 		return exampleDataStorage
