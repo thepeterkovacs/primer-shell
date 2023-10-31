@@ -3,6 +3,7 @@
 node_modules
 tests/export
 tests/out
+.turbo
 
 # files
 .env*

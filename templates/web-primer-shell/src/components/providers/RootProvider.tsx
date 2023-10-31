@@ -1,8 +1,6 @@
-import { getServerSession } from "next-auth"
-
 import { PropsWithChildren } from "react"
 
-import options from "@/lib/auth/options"
+import { getServerAuthSession } from "@/lib/auth/session"
 
 import DevTools from "../tools/DevTools"
 import { Toaster } from "../tools/Toaster"
@@ -16,7 +14,7 @@ interface Props extends PropsWithChildren {
 }
 
 export default async function RootProvider({ children, locale }: Props): Promise<JSX.Element> {
-	const session = await getServerSession(options)
+	const session = await getServerAuthSession()
 
 	return (
 		<SessionProvider session={session}>

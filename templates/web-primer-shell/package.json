@@ -1,26 +1,10 @@
 {
-	"name": "web-primer-shell",
-	"version": "1.0.0",
-	"description": "A developer-friendly web application template suitable for a wide spectrum of full-stack projects, offering a blend of contemporary tools and solutions to cater to both straightforward and intricate development needs.",
-	"author": {
-		"name": "Peter Kovacs",
-		"email": "peterkov37@gmail.com",
-		"url": "https://primershell.com"
-	},
-	"maintainers": [
-		"thepeterkovacs"
-	],
-	"homepage": "https://github.com/thepeterkovacs/web-primer-shell",
-	"license": "MIT",
-	"private": true,
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/thepeterkovacs/web-primer-shell"
-	},
+	"name": "project-name",
+	"version": "0.0.0",
 	"engines": {
-		"node": ">=18.17.1"
+		"node": ">=20.9.0"
 	},
-	"packageManager": "pnpm@8.7.1",
+	"packageManager": "pnpm@8.10.0",
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
@@ -54,7 +38,7 @@
 		"lru-cache": "^10.0.1",
 		"lucide-react": "^0.289.0",
 		"mysql2": "^3.6.2",
-		"next": "^13.5.6",
+		"next": "^14.0.0",
 		"next-auth": "^4.24.3",
 		"next-intl": "^2.21.0",
 		"next-themes": "^0.2.1",
@@ -64,6 +48,7 @@
 		"tailwind-merge": "^1.14.0",
 		"tailwindcss": "^3.3.5",
 		"tailwindcss-animate": "^1.0.7",
+		"turbo": "^1.10.16",
 		"typescript": "^5.2.2",
 		"zod": "^3.22.4"
 	},

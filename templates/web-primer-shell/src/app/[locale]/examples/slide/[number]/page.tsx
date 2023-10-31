@@ -30,13 +30,13 @@ export default function SlidePage({ params }: Props) {
 	useEffect(() => {
 		const handleRightArrow = (event: KeyboardEvent) => {
 			if (event.key === "ArrowRight") {
-				router.push(`/templates/slide/${nextNumber}`)
+				router.push(`/examples/slide/${nextNumber}`)
 			}
 		}
 
 		const handleLeftArrow = (event: KeyboardEvent) => {
 			if (event.key === "ArrowLeft") {
-				router.push(`/templates/slide/${previousNumber}`)
+				router.push(`/examples/slide/${previousNumber}`)
 			}
 		}
 
@@ -51,7 +51,7 @@ export default function SlidePage({ params }: Props) {
 
 	useEffect(() => {
 		const intervalId = setInterval(
-			() => router.push(`/templates/slide/${nextNumber}`),
+			() => router.push(`/examples/slide/${nextNumber}`),
 			options.intervalInMs
 		)
 
