@@ -1,6 +1,6 @@
 {
 	"name": "primer-shell",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"description": "Primer Shell is a Command Line Interface (CLI) tool designed to streamline the initialization process of Node.js applications, using carefully crafted templates for optimal project structuring.",
 	"author": {
 		"name": "Peter Kovacs",
@@ -12,14 +12,22 @@
 	],
 	"homepage": "https://primershell.com",
 	"license": "MIT",
+	"files": [
+		"build",
+		"templates",
+		"LICENSE",
+		"package.json",
+		"pnpm-lock.yaml",
+		"README.md"
+	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/thepeterkovacs/primer-shell"
 	},
 	"engines": {
-		"node": ">=18.17.1"
+		"node": ">=20.9.0"
 	},
-	"packageManager": "pnpm@8.7.1",
+	"packageManager": "pnpm@8.10.0",
 	"keywords": [
 		"Primer Shell",
 		"CLI",
@@ -30,7 +38,7 @@
 	"scripts": {
 		"build": "pnpm exec tsc",
 		"watch": "tsc -w",
-		"dev": "node build/app.js",
+		"start": "node build/app.js",
 		"format": "pnpm prettier . --write"
 	},
 	"dependencies": {
@@ -38,6 +46,7 @@
 		"cli-spinners": "^2.9.1",
 		"execa": "^8.0.1",
 		"figlet": "^1.6.0",
+		"fs-extra": "^11.1.1",
 		"gradient-string": "^2.0.2",
 		"inquirer": "^9.2.11",
 		"ora": "^7.0.1"
@@ -45,6 +54,7 @@
 	"devDependencies": {
 		"@trivago/prettier-plugin-sort-imports": "^4.2.0",
 		"@types/figlet": "^1.5.6",
+		"@types/fs-extra": "^11.0.3",
 		"@types/gradient-string": "^1.1.2",
 		"@types/inquirer": "^9.0.3",
 		"typescript": "^5.2.2"

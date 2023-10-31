@@ -1,0 +1,11 @@
+# directories
+.next
+node_modules
+tests/export
+tests/out
+.turbo
+
+# files
+.env*
+!.env.template
+next-env.d.ts
