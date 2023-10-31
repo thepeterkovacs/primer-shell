@@ -31,10 +31,13 @@ export const exampleRouter = router({
 
 		return exampleDataStorage
 	}),
-	postData: publicProcedure.input(postDataInputType).mutation(async ({ input }) => {
+	postData: publicProcedure.input(postDataInputType).mutation(({ input }) => {
 		exampleDataStorage.push({
 			id: exampleDataStorage[exampleDataStorage.length - 1].id + 1,
 			data: input.data,
 		})
+	}),
+	deleteData: publicProcedure.mutation(() => {
+		exampleDataStorage.slice(0, -3)
 	}),
 })
