@@ -137,7 +137,9 @@ async function copyTemplate(template: Template, projectName: string): Promise<vo
  * @returns {Promise<void>} A promise that resolves when the package.json setup is complete.
  */
 async function setupPackageJson(projectName: string): Promise<void> {
-	const packageJson = fsExtra.readJSONSync(path.join(ROOT_PATH, `${projectName}/package.json`))
+	const packageJson = fsExtra.readJSONSync(
+		path.join(process.cwd(), `${projectName}/package.json`)
+	)
 
 	packageJson.name = projectName as string
 	packageJson["primerShell"] = { version: getVersion() }
