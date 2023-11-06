@@ -18,8 +18,8 @@ export const metadata = rootMetadata
 
 export default function RootLayout({ children, params: { locale } }: Props) {
 	return (
-		<html suppressHydrationWarning>
-			<body className={fonts.roboto.className}>
+		<html lang={locale} suppressHydrationWarning>
+			<body className={fonts.inter.className}>
 				<RootProvider locale={locale}>{children}</RootProvider>
 			</body>
 		</html>

@@ -21,8 +21,8 @@ export default function LocaleDropdown() {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<Button variant="ghost">
-					<GlobeIcon className="h-6 w-6" />
+				<Button variant="ghost" size="sm">
+					<GlobeIcon className="h-5 w-5" />
 				</Button>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent align="end">
