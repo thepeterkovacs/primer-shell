@@ -38,6 +38,8 @@ export const exampleRouter = router({
 		})
 	}),
 	deleteData: publicProcedure.mutation(() => {
-		exampleDataStorage.slice(0, -3)
+		if (exampleDataStorage.length >= 5) {
+			exampleDataStorage = exampleDataStorage.slice(0, -3)
+		}
 	}),
 })

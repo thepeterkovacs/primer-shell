@@ -1,6 +1,11 @@
-import { Roboto } from "next/font/google"
+import { Inter, Orbitron } from "next/font/google"
 
-export const roboto = Roboto({
+export const inter = Inter({
+	subsets: ["latin"],
+	weight: "400",
+})
+
+export const orbitron = Orbitron({
 	subsets: ["latin"],
 	weight: "400",
 })
