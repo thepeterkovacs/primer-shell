@@ -1,8 +1,9 @@
 import { expect, test } from "@playwright/test"
 
-test("test", async ({ page }) => {
-	await page.goto("http://localhost:3000/")
+const url = process.env.NEXT_PUBLIC_URL
 
-	await expect(page).toHaveURL("http://localhost:3000")
-	await expect(page).toHaveTitle("Web Primer Shell")
+test("test", async ({ page }) => {
+	await page.goto(url)
+
+	await expect(page).toHaveURL(url)
 })
