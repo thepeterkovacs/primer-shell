@@ -3,9 +3,7 @@
 node_modules
 tests/export
 tests/out
-.turbo
 
 # files
-.env*
-!.env.template
+.env.local
 next-env.d.ts
