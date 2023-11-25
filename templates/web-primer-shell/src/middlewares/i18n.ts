@@ -1,13 +1,11 @@
 import createMiddleware from "next-intl/middleware"
 
-import { NextRequest, NextResponse } from "next/server"
+import { defaultLocale, locales } from "i18n/config"
 
-import { defaultLocale, locales } from "@/lib/i18n/config"
+const i18nMiddleware = createMiddleware({
+	locales: locales.map((locale) => locale.lang),
+	defaultLocale,
+	localePrefix: "never",
+})
 
-export default function i18n(): (request: NextRequest) => NextResponse<unknown> {
-	return createMiddleware({
-		locales: locales.map((locale) => locale.lang),
-		defaultLocale,
-		localePrefix: "never",
-	})
-}
+export default i18nMiddleware
