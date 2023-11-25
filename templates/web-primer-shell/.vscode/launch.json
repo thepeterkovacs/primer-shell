@@ -5,7 +5,7 @@
 			"name": "server",
 			"type": "node-terminal",
 			"request": "launch",
-			"command": "turbo dev"
+			"command": "npm run dev"
 		},
 		{
 			"name": "client",
@@ -17,7 +17,7 @@
 			"name": "app",
 			"type": "node-terminal",
 			"request": "launch",
-			"command": "turbo dev",
+			"command": "npm run dev",
 			"serverReadyAction": {
 				"pattern": "started server on .+, url: (https?://.+)",
 				"uriFormat": "%s",
