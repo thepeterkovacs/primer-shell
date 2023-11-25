@@ -9,18 +9,35 @@
 		"module": "esnext",
 		"moduleResolution": "bundler",
 		"noEmit": true,
+		"paths": {
+			"_trpc/*": ["./src/app/_trpc/*"],
+			"providers/*": ["./src/components/providers/*"],
+			"shared/*": ["./src/components/shared/*"],
+			"tools/*": ["./src/components/tools/*"],
+			"ui/*": ["./src/components/ui/*"],
+			"assets/*": ["./src/lib/assets/*"],
+			"auth/*": ["./src/lib/auth/*"],
+			"classes/*": ["./src/lib/classes/*"],
+			"hooks/*": ["./src/lib/hooks/*"],
+			"i18n/*": ["./src/lib/i18n/*"],
+			"utils/*": ["./src/lib/utils/*"],
+			"middlewares/*": ["./src/middlewares/*"],
+			"api/*": ["./src/server/api/*"],
+			"routers/*": ["./src/server/api/routers/*"],
+			"database/*": ["./src/server/database/*"],
+			"styles/*": ["./src/styles/*"],
+			"types/*": ["./src/types/*"],
+			"~/*": ["./*", "./src/*"]
+		},
 		"plugins": [
 			{
 				"name": "next"
 			}
 		],
-		"paths": {
-			"@/*": ["./src/*"]
-		},
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"strict": true,
-		"target": "ES6",
+		"target": "ES2022",
 		"tsBuildInfoFile": ".tsbuildinfo"
 	},
 	"exclude": ["node_modules"],
