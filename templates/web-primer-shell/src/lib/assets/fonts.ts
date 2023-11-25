@@ -1,11 +1,6 @@
-import { Inter, Orbitron } from "next/font/google"
+import { Raleway } from "next/font/google"
 
-export const inter = Inter({
-	subsets: ["latin"],
-	weight: "400",
-})
-
-export const orbitron = Orbitron({
+export const raleway = Raleway({
 	subsets: ["latin"],
 	weight: "400",
 })
