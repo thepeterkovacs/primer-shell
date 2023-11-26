@@ -1,6 +1,6 @@
-import { Raleway } from "next/font/google"
+import { Inter } from "next/font/google"
 
-export const raleway = Raleway({
+export const inter = Inter({
 	subsets: ["latin"],
 	weight: "400",
 })
