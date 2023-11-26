@@ -25,7 +25,7 @@ export default function RootLayout({ children, params: { locale } }: Props) {
 
 	return (
 		<html lang={locale} suppressHydrationWarning>
-			<body className={cn("relative h-full font-sans antialiased", fonts.inter.className)}>
+			<body className={cn("h-screen antialiased", fonts.inter.className)}>
 				<RootProvider headers={headers()} locale={locale}>
 					{children}
 				</RootProvider>
