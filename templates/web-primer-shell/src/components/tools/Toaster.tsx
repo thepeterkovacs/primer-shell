@@ -1,6 +1,6 @@
 "use client"
 
-import { useToast } from "@/lib/hooks/useToast"
+import { useToast } from "hooks/useToast"
 
 import {
 	Toast,
@@ -9,7 +9,7 @@ import {
 	ToastProvider,
 	ToastTitle,
 	ToastViewport,
-} from "@/components/layout/Toast"
+} from "ui/Toast"
 
 export function Toaster(): JSX.Element {
 	const { toasts } = useToast()
