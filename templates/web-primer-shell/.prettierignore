@@ -1,11 +1,11 @@
 # directories
 .next
 node_modules
+src/server/database/out
 tests/export
 tests/out
 
 # files
-.env*
-!.env.template
-pnpm-lock.yaml
+.env.local
 next-env.d.ts
+pnpm-lock.yaml

@@ -1,18 +1,17 @@
 "use client"
 
-import { GlobeIcon } from "@radix-ui/react-icons"
-
+import { LanguagesIcon } from "lucide-react"
 import { usePathname, useRouter } from "next/navigation"
 
-import { locales } from "@/lib/i18n/config"
+import { locales } from "i18n/config"
 
-import { Button } from "../layout/Button"
+import { Button } from "ui/Button"
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
 	DropdownMenuTrigger,
-} from "../layout/DropdownMenu"
+} from "ui/DropdownMenu"
 
 export default function LocaleDropdown() {
 	const pathName = usePathname()
@@ -21,14 +20,15 @@ export default function LocaleDropdown() {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<Button variant="ghost" size="sm">
-					<GlobeIcon className="h-5 w-5" />
+				<Button variant="ghost">
+					<LanguagesIcon className="h-6 w-6" />
 				</Button>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent align="end">
 				{locales.map((locale) => (
 					<DropdownMenuItem
 						key={locale.lang}
+						className="hover:cursor-pointer"
 						onClick={() => router.push(`/${locale.lang}${pathName}`)}>
 						{locale.name}
 					</DropdownMenuItem>

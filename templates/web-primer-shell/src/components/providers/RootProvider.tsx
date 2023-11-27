@@ -1,24 +1,29 @@
 import { PropsWithChildren } from "react"
 
-import { getServerAuthSession } from "@/lib/auth/session"
+import { getServerAuthSession } from "auth/session"
 
-import DevTools from "../tools/DevTools"
-import { Toaster } from "../tools/Toaster"
-import IntlClientProvider from "./IntlClientProvider"
-import QueryProvider from "./QueryProvider"
-import SessionProvider from "./SessionProvider"
-import ThemeProvider from "./ThemeProvider"
+import IntlClientProvider from "providers/IntlClientProvider"
+import QueryProvider from "providers/QueryProvider"
+import SessionProvider from "providers/SessionProvider"
+import ThemeProvider from "providers/ThemeProvider"
+import DevTools from "tools/DevTools"
+import { Toaster } from "tools/Toaster"
 
 interface Props extends PropsWithChildren {
+	headers: Headers
 	locale: string
 }
 
-export default async function RootProvider({ children, locale }: Props): Promise<JSX.Element> {
+export default async function RootProvider({
+	headers,
+	locale,
+	children,
+}: Props): Promise<JSX.Element> {
 	const session = await getServerAuthSession()
 
 	return (
 		<SessionProvider session={session}>
-			<QueryProvider>
+			<QueryProvider headers={headers}>
 				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
 					<IntlClientProvider locale={locale}>
 						{children}

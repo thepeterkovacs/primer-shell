@@ -13,7 +13,7 @@ export default class T {
 		hours?: number,
 		minutes?: number,
 		seconds?: number,
-		milliseconds?: number
+		milliseconds?: number,
 	) {
 		this.days = days ?? 0
 		this.hours = hours ?? 0

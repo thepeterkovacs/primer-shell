@@ -1,14 +1,17 @@
-import { appRouter } from "@/server/api/appRouter"
 import { renderTrpcPanel } from "trpc-panel"
+
+import { rootRouter } from "api/root"
+
+import { getTrpcUrl } from "utils/standard"
 
 export async function GET() {
 	return new Response(
-		renderTrpcPanel(appRouter, {
-			url: `${process.env.NEXT_PUBLIC_URL}/api/trpc`,
+		renderTrpcPanel(rootRouter, {
+			url: getTrpcUrl(),
 		}),
 		{
 			status: 200,
 			headers: { "Content-Type": "text/html" },
-		}
+		},
 	)
 }

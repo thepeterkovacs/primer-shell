@@ -1,7 +1,16 @@
 import withAuth from "next-auth/middleware"
 
-import { AnyMiddleware } from "@/lib/utils/middleware"
+import i18nMiddleware from "middlewares/i18n"
 
-export default function auth(middleware: AnyMiddleware) {
-	return withAuth(middleware)
-}
+const authMiddleware = withAuth(
+	function onSuccess(req) {
+		return i18nMiddleware(req)
+	},
+	{
+		pages: {
+			signIn: "/auth",
+		},
+	},
+)
+
+export default authMiddleware

@@ -1,18 +1,22 @@
-import { appRouter } from "@/server/api/appRouter"
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch"
+import { NextRequest } from "next/server"
 
-const handler = (req: Request) =>
+import { rootRouter } from "api/root"
+import { context } from "api/trpc"
+
+import { isDevEnv } from "utils/standard"
+
+const handler = (req: NextRequest) =>
 	fetchRequestHandler({
+		createContext: () => context({ req }),
 		endpoint: "/api/trpc",
+		onError: isDevEnv()
+			? ({ path, error }) => {
+					console.error(`tRPC error on ${path ?? "unknown"} path: ${error.message}`)
+			  }
+			: undefined,
 		req,
-		router: appRouter,
-		createContext: () => ({}),
-		onError:
-			process.env.NODE_ENV === "development"
-				? ({ path, error }) => {
-						console.error(`❌ tRPC failed on ${path ?? "<no-path>"}: ${error.message}`)
-				  }
-				: undefined,
+		router: rootRouter,
 	})
 
 export { handler as GET, handler as POST }
