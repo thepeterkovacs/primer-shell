@@ -1,5 +1,7 @@
+import { isProdEnv } from "utils/standard"
+
 export default function TailwindIndicator(): JSX.Element | null {
-	if (process.env.NODE_ENV === "production") {
+	if (isProdEnv()) {
 		return null
 	}
 

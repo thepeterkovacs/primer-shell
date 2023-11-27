@@ -5,14 +5,19 @@ dotenv.config({
 	path: ".env.local",
 })
 
+/**
+ * Prefix applied to all generated table names.
+ */
+export const tablesFilterPrefix = ""
+
 export default {
-	schema: "./src/server/database/schema/*.ts",
-	out: "./src/server/database/out",
-	driver: "mysql2",
 	dbCredentials: {
-		connectionString: process.env.PS_DB_URL,
+		url: "sqlite.db",
 	},
-	tablesFilter: [""],
+	driver: "better-sqlite",
+	out: "./src/server/database/out",
+	schema: "./src/server/database/schema/*.ts",
+	strict: true,
+	tablesFilter: [`${tablesFilterPrefix}*`],
 	verbose: true,
-	breakpoints: true,
 } satisfies Config

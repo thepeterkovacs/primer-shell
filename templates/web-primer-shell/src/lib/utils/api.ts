@@ -1,6 +1,6 @@
 import { LRUCache } from "lru-cache"
 
-import T from "../classes/T"
+import T from "classes/T"
 
 export type Options = LRUCache<{}, {}, unknown> | LRUCache.Options<{}, {}, unknown>
 export type Check = (limit: number, token: string) => Promise<void>

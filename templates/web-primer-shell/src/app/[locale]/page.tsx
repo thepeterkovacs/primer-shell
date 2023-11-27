@@ -1,10 +1,9 @@
-import * as fonts from "@/lib/assets/fonts"
-import { cn } from "@/lib/utils/standard"
+import packageJson from "~/package.json"
 
 export default function HomePage() {
 	return (
-		<main className="flex h-screen items-center justify-center">
-			<h1 className={cn("text-5xl", fonts.orbitron.className)}>Web Primer Shell</h1>
+		<main className="flex h-full items-center justify-center">
+			<h1 className="text-4xl">{packageJson.name}</h1>
 		</main>
 	)
 }
