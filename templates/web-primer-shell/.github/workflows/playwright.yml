@@ -38,7 +38,7 @@ jobs:
             - name: Run Playwright tests
               run: pnpm test
 
-            - name: "Upload results"
+            - name: Upload results
               uses: actions/upload-artifact@v3
               if: always()
               with:
