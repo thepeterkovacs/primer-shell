@@ -5,6 +5,7 @@ module.exports = {
 	bracketSpacing: true,
 	endOfLine: "crlf",
 	importOrder: [
+		"^~/(.*)$",
 		"^_trpc/(.*)$",
 		"^api/(.*)$|^routers/(.*)$|^database/(.*)$",
 		"^middlewares/(.*)$",
