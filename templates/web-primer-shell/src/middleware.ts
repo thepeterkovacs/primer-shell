@@ -4,6 +4,7 @@ import authMiddleware from "middlewares/auth"
 import i18nMiddleware from "middlewares/i18n"
 
 import { locales } from "i18n/config"
+import { isDevEnv } from "utils/standard"
 
 /**
  * Pages that do not need authentication to access.
@@ -15,7 +16,13 @@ const publicPathnameRegex = RegExp(
 )
 
 export default function middleware(req: NextRequest) {
-	if (publicPathnameRegex.test(req.nextUrl.pathname)) {
+	const { pathname } = req.nextUrl
+
+	if (isDevEnv()) {
+		console.log(`middleware handling for ${pathname} path`)
+	}
+
+	if (publicPathnameRegex.test(pathname)) {
 		return i18nMiddleware(req)
 	} else {
 		// @ts-ignore
@@ -24,5 +31,5 @@ export default function middleware(req: NextRequest) {
 }
 
 export const config = {
-	matcher: ["/", "/(en|hu)/((?!api|_next/static|_next/image|favicon.ico).*)"],
+	matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 }
