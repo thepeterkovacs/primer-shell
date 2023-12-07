@@ -19,7 +19,9 @@ export default function middleware(req: NextRequest) {
 	const { pathname } = req.nextUrl
 
 	if (isDevEnv()) {
-		console.log(`middleware handling for ${pathname} path`)
+		console.log(
+			"\u001b[" + 33 + "m" + `middleware handling for "${pathname}" path` + "\u001b[0m",
+		)
 	}
 
 	if (publicPathnameRegex.test(pathname)) {
