@@ -1,6 +1,7 @@
 import { TRPCError, inferRouterInputs, inferRouterOutputs, initTRPC } from "@trpc/server"
 import { Session } from "next-auth"
 import { NextRequest } from "next/server"
+import superjson from "superjson"
 import { ZodError } from "zod"
 
 import { RootRouter } from "api/root"
@@ -25,6 +26,7 @@ export const context = async (opts: { req: NextRequest }): Promise<Context> => {
 }
 
 const trpc = initTRPC.context<Context>().create({
+	transformer: superjson,
 	errorFormatter({ shape, error }) {
 		return {
 			...shape,
