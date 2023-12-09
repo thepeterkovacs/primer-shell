@@ -27,7 +27,7 @@
 	"engines": {
 		"node": ">=20.9.0"
 	},
-	"packageManager": "^pnpm@8.10.0",
+	"packageManager": "pnpm@8.10.0",
 	"keywords": [
 		"Primer Shell",
 		"CLI",
@@ -37,6 +37,7 @@
 	"bin": "build/app.js",
 	"scripts": {
 		"build": "pnpm exec tsc",
+		"dependencies": "pnpm install",
 		"format": "pnpm prettier . --write",
 		"start": "node build/app.js",
 		"watch": "tsc -w"
