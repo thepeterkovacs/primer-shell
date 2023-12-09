@@ -10,11 +10,11 @@
 		"db:migrate": "drizzle-kit generate:sqlite",
 		"db:push": "drizzle-kit push:sqlite",
 		"db:studio": "drizzle-kit studio --port 4000 --verbose",
+		"dependencies": "pnpm install",
 		"dev": "next dev",
-		"email": "email dev",
 		"format": "pnpm prettier . --write",
 		"lint": "next lint",
-		"report": "pnpm playwright show-report tests\\export",
+		"report": "pnpm playwright show-report tests\\report",
 		"start": "next start",
 		"test": "playwright test"
 	},
