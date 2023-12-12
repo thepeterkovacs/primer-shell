@@ -2,7 +2,7 @@ import chalk from "chalk"
 import fsExtra from "fs-extra"
 import path from "path"
 
-import { ROOT_PATH } from "./config.js"
+import { ROOT_PATH } from "~/config.js"
 
 /**
  * Logs an error message with a specified title and optional details to the console, then exits the process with an error code.
