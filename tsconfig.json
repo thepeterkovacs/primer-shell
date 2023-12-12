@@ -9,6 +9,9 @@
 		"moduleResolution": "NodeNext",
 		"noUncheckedIndexedAccess": true,
 		"outDir": "build",
+		"paths": {
+			"~/*": ["./*", "./src/*"]
+		},
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"sourceMap": true,
