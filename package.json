@@ -14,11 +14,11 @@
 	"license": "MIT",
 	"files": [
 		"build",
-		"templates",
 		"LICENSE",
 		"package.json",
 		"pnpm-lock.yaml",
-		"README.md"
+		"README.md",
+		"templates"
 	],
 	"repository": {
 		"type": "git",
@@ -39,6 +39,8 @@
 		"build": "pnpm exec tsc",
 		"dependencies": "pnpm install",
 		"format": "pnpm prettier . --write",
+		"publish:dry": "pnpm publish --dry-run",
+		"publish": "pnpm publish",
 		"start": "node build/app.js",
 		"watch": "tsc -w"
 	},
