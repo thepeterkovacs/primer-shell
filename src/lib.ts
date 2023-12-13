@@ -114,8 +114,12 @@ export async function setupProject(template: Template, projectName: string): Pro
  */
 async function setupProcess(template: Template, projectName: string): Promise<void> {
 	await copyTemplate(template, projectName)
+
 	await setupPackageJson(projectName)
+
 	await setupGitignore(projectName)
+
+	await setupEnvironment(projectName)
 }
 
 /**
@@ -171,6 +175,20 @@ async function setupGitignore(projectName: string): Promise<void> {
 	await promises.rename(
 		path.resolve(process.cwd(), `${projectName}/_gitignore`),
 		path.resolve(process.cwd(), `${projectName}/.gitignore`)
+	)
+}
+
+/**
+ * Asynchronously sets up the .env.local file for a project.
+ * @param {string} projectName Name of the project.
+ * @returns {Promise<void>} A promise that resolves when the .env.local setup is complete.
+ * @example
+ * await setupEnvironment("project-name")
+ */
+async function setupEnvironment(projectName: string): Promise<void> {
+	await promises.rename(
+		path.resolve(process.cwd(), `${projectName}/_env.local`),
+		path.resolve(process.cwd(), `${projectName}/.env.local`)
 	)
 }
 
