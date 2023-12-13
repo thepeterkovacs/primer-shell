@@ -8,9 +8,9 @@ import inquirer from "inquirer"
 import { oraPromise } from "ora"
 import path from "path"
 
-import { ROOT_PATH } from "~/config.js"
-import type { Template } from "~/types.js"
-import error, { getVersion, validateProjectName } from "~/utils.js"
+import { ROOT_PATH } from "./config.js"
+import type { Template } from "./types.js"
+import error, { getVersion, validateProjectName } from "./utils.js"
 
 /**
  * Asynchronously generates and displays a styled title using the Figlet library.
