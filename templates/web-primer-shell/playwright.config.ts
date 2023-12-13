@@ -23,7 +23,7 @@ export default defineConfig({
 			use: { ...devices["Desktop Safari"] },
 		},
 	],
-	reporter: [["list"], ["html", { outputFolder: "tests/export", open: "never" }]],
+	reporter: [["list"], ["html", { outputFolder: "tests/report", open: "never", port: 5000 }]],
 	retries: process.env.CI ? 2 : 0,
 	testDir: "./tests",
 	use: {
