@@ -1,26 +1,26 @@
 import { TRPCError, inferRouterInputs, inferRouterOutputs, initTRPC } from "@trpc/server"
 import { Session } from "next-auth"
-import { NextRequest } from "next/server"
 import superjson from "superjson"
 import { ZodError } from "zod"
 
 import { RootRouter } from "api/root"
+import { Db, db } from "database/connection"
 
 import { getServerAuthSession } from "auth/session"
 
 export interface Context {
-	headers: Headers | null
+	db: Db
 	session: Session | null
 }
 
 /**
  * Data that all procedures have access to.
  */
-export const context = async (opts: { req: NextRequest }): Promise<Context> => {
+export const context = async (): Promise<Context> => {
 	const session = await getServerAuthSession()
 
 	return {
-		headers: opts.req.headers,
+		db,
 		session,
 	}
 }
@@ -62,5 +62,16 @@ export const privateProcedure = trpc.procedure.use(
 	}),
 )
 
+/**
+ * Router input type helper.
+ * @example
+ * type RouterInput = RouterInputs["router"]["procedure"]
+ */
 export type RouterInputs = inferRouterInputs<RootRouter>
+
+/**
+ * Router output type helper.
+ * @example
+ * type RouterOutput = RouterOutputs["router"]["procedure"]
+ * */
 export type RouterOutputs = inferRouterOutputs<RootRouter>
