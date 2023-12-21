@@ -24,6 +24,9 @@ export default function QueryProvider({ children, headers }: Props): JSX.Element
 						refetchOnWindowFocus: false,
 						retry: false,
 					},
+					mutations: {
+						retry: false,
+					},
 				},
 			}),
 	)
