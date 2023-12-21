@@ -66,3 +66,32 @@ export const getHtmlFromUrl = async (url: string): Promise<string> => {
 	const res = await fetch(url, { cache: "no-store" })
 	return await res.text()
 }
+
+/**
+ * Colors that can be used in the {@link log} function.
+ */
+const logColors = {
+	red: 31,
+	green: 32,
+	yellow: 33,
+	blue: 34,
+	magenta: 35,
+	cyan: 36,
+	white: 37,
+}
+
+export type LogColor = keyof typeof logColors
+
+/**
+ * Logs a message to the console with a specified color in only development or all environments.
+ * @param {string} message Message to log.
+ * @param {LogColor} [color] Color of the message.
+ * @param {boolean} [onlyDev] Whether to log the message only in development environment.
+ * @example
+ * log("message", LogColor.green, true)
+ */
+export const log = (message: string, color?: LogColor, onlyDev?: boolean) => {
+	if (!onlyDev || (onlyDev && isDevEnv())) {
+		console.log("\u001b[" + (color ? logColors[color] : 0) + "m" + message + "\u001b[0m")
+	}
+}
