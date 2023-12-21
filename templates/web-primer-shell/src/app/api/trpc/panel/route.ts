@@ -7,6 +7,7 @@ import { getTrpcUrl } from "utils/standard"
 export async function GET() {
 	return new Response(
 		renderTrpcPanel(rootRouter, {
+			transformer: "superjson",
 			url: getTrpcUrl(),
 		}),
 		{
