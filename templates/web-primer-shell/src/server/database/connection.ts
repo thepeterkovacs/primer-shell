@@ -7,3 +7,5 @@ const sqlite = new Database("sqlite.db")
  * Represents a database instance used to access data from the created database tables.
  */
 export const db = drizzle(sqlite)
+
+export type Db = typeof db

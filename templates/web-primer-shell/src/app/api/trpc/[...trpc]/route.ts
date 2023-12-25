@@ -4,17 +4,15 @@ import { NextRequest } from "next/server"
 import { rootRouter } from "api/root"
 import { context } from "api/trpc"
 
-import { isDevEnv } from "utils/standard"
+import { log } from "utils/standard"
 
 const handler = (req: NextRequest) =>
 	fetchRequestHandler({
-		createContext: () => context({ req }),
+		createContext: () => context(),
 		endpoint: "/api/trpc",
-		onError: isDevEnv()
-			? ({ path, error }) => {
-					console.error(`tRPC error on ${path ?? "unknown"} path: ${error.message}`)
-			  }
-			: undefined,
+		onError: ({ path, error }) => {
+			log(`tRPC error on ${`"${path}"` ?? "unknown"} path: ${error.message}`, "red")
+		},
 		req,
 		router: rootRouter,
 	})
