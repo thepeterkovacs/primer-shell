@@ -109,10 +109,17 @@ export async function setupProject(template: Template, projectName: string): Pro
  * @param {Template} template Template to copy for the new project.
  * @param {string} projectName Name of the new project.
  * @returns {Promise<void>} A promise that resolves when the setup process is complete.
+ * @example
+ * await setupProcess("web-primer-shell", "project-name")
  */
 async function setupProcess(template: Template, projectName: string): Promise<void> {
 	await copyTemplate(template, projectName)
+
 	await setupPackageJson(projectName)
+
+	await setupGitignore(projectName)
+
+	await setupEnvironment(projectName)
 }
 
 /**
@@ -120,6 +127,8 @@ async function setupProcess(template: Template, projectName: string): Promise<vo
  * @param {Template} template Name of the template to copy.
  * @param {string} projectName Name of the new project directory.
  * @returns {Promise<void>} A Promise that resolves when the copy operation is complete.
+ * @example
+ * await copyTemplate("web-primer-shell", "project-name")
  */
 async function copyTemplate(template: Template, projectName: string): Promise<void> {
 	await promises.cp(
@@ -135,6 +144,8 @@ async function copyTemplate(template: Template, projectName: string): Promise<vo
  * Asynchronously sets up the package.json file for a project.
  * @param {string} projectName Name of the project.
  * @returns {Promise<void>} A promise that resolves when the package.json setup is complete.
+ * @example
+ * await setupPackageJson("project-name")
  */
 async function setupPackageJson(projectName: string): Promise<void> {
 	const packageJson = await fsExtra.readJSON(
@@ -150,6 +161,34 @@ async function setupPackageJson(projectName: string): Promise<void> {
 		{
 			spaces: "\t",
 		}
+	)
+}
+
+/**
+ * Asynchronously sets up the .gitignore file for a project.
+ * @param {string} projectName Name of the project.
+ * @returns {Promise<void>} A promise that resolves when the .gitignore setup is complete.
+ * @example
+ * await setupGitignore("project-name")
+ */
+async function setupGitignore(projectName: string): Promise<void> {
+	await promises.rename(
+		path.resolve(process.cwd(), `${projectName}/_gitignore`),
+		path.resolve(process.cwd(), `${projectName}/.gitignore`)
+	)
+}
+
+/**
+ * Asynchronously sets up the .env.local file for a project.
+ * @param {string} projectName Name of the project.
+ * @returns {Promise<void>} A promise that resolves when the .env.local setup is complete.
+ * @example
+ * await setupEnvironment("project-name")
+ */
+async function setupEnvironment(projectName: string): Promise<void> {
+	await promises.rename(
+		path.resolve(process.cwd(), `${projectName}/_env.local`),
+		path.resolve(process.cwd(), `${projectName}/.env.local`)
 	)
 }
 

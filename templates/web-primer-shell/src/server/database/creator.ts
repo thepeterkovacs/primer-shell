@@ -1,4 +1,5 @@
 import { sqliteTableCreator } from "drizzle-orm/sqlite-core"
+
 import { tablesFilterPrefix } from "~/drizzle.config"
 
 /**

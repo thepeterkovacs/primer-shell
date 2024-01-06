@@ -1,6 +1,6 @@
 {
 	"name": "primer-shell",
-	"version": "2.2.1",
+	"version": "2.3.0",
 	"description": "Primer Shell is a Command Line Interface (CLI) tool designed to streamline the initialization process of Node.js applications, using carefully crafted templates for optimal project structuring.",
 	"author": {
 		"name": "Peter Kovacs",
@@ -14,11 +14,11 @@
 	"license": "MIT",
 	"files": [
 		"build",
-		"templates",
 		"LICENSE",
 		"package.json",
 		"pnpm-lock.yaml",
-		"README.md"
+		"README.md",
+		"templates"
 	],
 	"repository": {
 		"type": "git",
@@ -27,7 +27,7 @@
 	"engines": {
 		"node": ">=20.9.0"
 	},
-	"packageManager": "^pnpm@8.10.0",
+	"packageManager": "pnpm@8.10.0",
 	"keywords": [
 		"Primer Shell",
 		"CLI",
@@ -37,7 +37,10 @@
 	"bin": "build/app.js",
 	"scripts": {
 		"build": "pnpm exec tsc",
+		"dependencies": "pnpm install",
 		"format": "pnpm prettier . --write",
+		"publish:dry": "pnpm publish --dry-run",
+		"publish": "pnpm publish",
 		"start": "node build/app.js",
 		"watch": "tsc -w"
 	},

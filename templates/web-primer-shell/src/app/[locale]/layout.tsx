@@ -24,10 +24,10 @@ export default function RootLayout({ children, params: { locale } }: Props) {
 	if (!locales.map((locale) => locale.lang).includes(locale)) notFound()
 
 	return (
-		<html lang={locale} suppressHydrationWarning>
-			<body className={cn("h-screen antialiased", fonts.inter.className)}>
+		<html className="h-full" lang={locale} suppressHydrationWarning>
+			<body className={cn("relative h-screen font-sans antialiased", fonts.inter.className)}>
 				<RootProvider headers={headers()} locale={locale}>
-					{children}
+					<main className="relative flex min-h-screen flex-col">{children}</main>
 				</RootProvider>
 			</body>
 		</html>

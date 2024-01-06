@@ -4,4 +4,4 @@ NEXT_PUBLIC_URL=http://localhost:3000
 # NextAuth URL - equal to the public URL
 NEXTAUTH_URL=$NEXT_PUBLIC_URL
 # NextAuth secret - generate with "openssl rand -base64 32" using Git Bash
-NEXTAUTH_SECRET=
+NEXTAUTH_SECRET=NEXTAUTH_SECRET

@@ -1,7 +1,7 @@
 import path from "path"
 import { fileURLToPath } from "url"
 
-/** Name of the application */
+/** Name of the application. */
 export const APP_NAME: string = "Primer Shell"
 
 /** Path to the root folder of the application. */

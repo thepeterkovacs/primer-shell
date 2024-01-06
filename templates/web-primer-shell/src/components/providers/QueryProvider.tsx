@@ -3,6 +3,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { loggerLink, unstable_httpBatchStreamLink } from "@trpc/client"
 import { PropsWithChildren, useState } from "react"
+import superjson from "superjson"
 
 import trpcClient from "_trpc/client"
 
@@ -23,12 +24,16 @@ export default function QueryProvider({ children, headers }: Props): JSX.Element
 						refetchOnWindowFocus: false,
 						retry: false,
 					},
+					mutations: {
+						retry: false,
+					},
 				},
 			}),
 	)
 
 	const [client] = useState(() =>
 		trpcClient.createClient({
+			transformer: superjson,
 			links: [
 				loggerLink({
 					enabled: (opts) =>
@@ -37,6 +42,12 @@ export default function QueryProvider({ children, headers }: Props): JSX.Element
 				}),
 				unstable_httpBatchStreamLink({
 					url: getTrpcUrl(),
+					fetch(url, options) {
+						return fetch(url, {
+							...options,
+							credentials: "include",
+						})
+					},
 					headers() {
 						const requestHeaders = new Map(headers)
 						requestHeaders.set("x-trpc-source", "client")
