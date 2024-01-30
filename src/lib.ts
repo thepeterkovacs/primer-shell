@@ -74,6 +74,10 @@ export async function selectTemplate(): Promise<Template> {
 				{
 					name: "Node Primer Shell",
 					value: "node-primer-shell",
+				},
+				{
+					name: "SE Primer Shell",
+					value: "se-primer-shell",
 					disabled: "Coming soon",
 				},
 			],
