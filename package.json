@@ -1,6 +1,6 @@
 {
 	"name": "primer-shell",
-	"version": "2.3.0",
+	"version": "2.4.0",
 	"description": "Primer Shell is a Command Line Interface (CLI) tool designed to streamline the initialization process of Node.js applications, using carefully crafted templates for optimal project structuring.",
 	"author": {
 		"name": "Peter Kovacs",
