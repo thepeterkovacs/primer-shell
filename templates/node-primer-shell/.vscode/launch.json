@@ -1,0 +1,14 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "debug",
+			"outFiles": ["${workspaceFolder}/build/**/*.js"],
+			"preLaunchTask": "tsc: build - tsconfig.json",
+			"program": "${workspaceFolder}\\build\\app.js",
+			"request": "launch",
+			"skipFiles": ["<node_internals>/**"],
+			"type": "node"
+		}
+	]
+}
